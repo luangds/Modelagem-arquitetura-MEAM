@@ -125,4 +125,5 @@ Coleções principais:
 ## Autor
 
 Projeto acadêmico desenvolvido para a disciplina de Desenvolvimento Web utilizando a arquitetura MEAN.
+Os links são somente para ilustrar.
 
