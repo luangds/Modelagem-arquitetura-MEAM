@@ -7,31 +7,29 @@ O BetCup é um sistema web desenvolvido utilizando a arquitetura MEAN (MongoDB, 
 
 O sistema possui funcionalidades de autenticação, cadastro de usuários, gerenciamento de apostas e consulta de apostas realizadas.
 
----
+ Tecnologias Utilizadas
 
-## Tecnologias Utilizadas
-
-### Frontend
+ Frontend
 
 * Angular
 * HTML5
 * CSS3
 * TypeScript
 
-### Backend
+ Backend
 
 * Node.js
 * Express.js
 
-### Banco de Dados
+ Banco de Dados
 
 * MongoDB
 
 ---
 
-## Estrutura do Projeto
+ Estrutura do Projeto
 
-### Frontend
+ Frontend
 
 frontend/
 
@@ -49,7 +47,7 @@ frontend/
 
 └── app-routing.module.ts
 
-### Backend
+ Backend
 
 backend/
 
@@ -67,7 +65,7 @@ backend/
 
 ---
 
-## Funcionalidades
+ Funcionalidades
 
 * Cadastro de usuários
 * Login de usuários
@@ -80,7 +78,7 @@ backend/
 
 ---
 
-## Execução do Backend
+ Execução do Backend
 
 Instalar as dependências:
 
@@ -96,7 +94,7 @@ http://localhost:3000
 
 ---
 
-## Execução do Frontend
+ Execução do Frontend
 
 Instalar as dependências:
 
@@ -112,7 +110,7 @@ http://localhost:4200
 
 ---
 
-## Banco de Dados
+ Banco de Dados
 
 O sistema utiliza MongoDB para armazenamento das informações de usuários, partidas e apostas.
 
