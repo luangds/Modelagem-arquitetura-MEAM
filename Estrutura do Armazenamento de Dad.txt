@@ -1,0 +1,115 @@
+# Estrutura do Armazenamento de Dados no MongoDB
+
+O sistema BetCup utiliza o MongoDB como banco de dados NoSQL para armazenar informações dos usuários, partidas e apostas. Os dados são organizados em coleções, conforme descrito a seguir.
+
+## Coleção: usuarios
+
+Responsável por armazenar os dados dos usuários cadastrados no sistema.
+
+### Exemplo de documento
+
+```json
+{
+  "_id": "u001",
+  "nome": "João Silva",
+  "email": "joao@email.com",
+  "senha": "123456",
+  "perfil": "usuario",
+  "pontuacao": 15
+}
+```
+
+### Campos
+
+| Campo     | Tipo   | Descrição           |
+| --------- | ------ | ------------------- |
+| _id       | String | Identificador único |
+| nome      | String | Nome do usuário     |
+| email     | String | E-mail do usuário   |
+| senha     | String | Senha de acesso     |
+| perfil    | String | Tipo de usuário     |
+| pontuacao | Number | Pontuação acumulada |
+
+---
+
+## Coleção: jogos
+
+Responsável por armazenar as partidas disponíveis para apostas.
+
+### Exemplo de documento
+
+```json
+{
+  "_id": "j001",
+  "timeCasa": "Brasil",
+  "timeVisitante": "Argentina",
+  "dataHora": "2026-07-15T18:00:00",
+  "golsCasa": 2,
+  "golsVisitante": 1,
+  "status": "encerrado"
+}
+```
+
+### Campos
+
+| Campo         | Tipo   | Descrição                 |
+| ------------- | ------ | ------------------------- |
+| _id           | String | Identificador da partida  |
+| timeCasa      | String | Equipe mandante           |
+| timeVisitante | String | Equipe visitante          |
+| dataHora      | Date   | Data e horário da partida |
+| golsCasa      | Number | Gols da equipe mandante   |
+| golsVisitante | Number | Gols da equipe visitante  |
+| status        | String | Situação da partida       |
+
+---
+
+## Coleção: apostas
+
+Responsável por armazenar os palpites realizados pelos usuários.
+
+### Exemplo de documento
+
+```json
+{
+  "_id": "a001",
+  "usuarioId": "u001",
+  "jogoId": "j001",
+  "placarCasa": 3,
+  "placarVisitante": 1,
+  "pontuacaoObtida": 2
+}
+```
+
+### Campos
+
+| Campo           | Tipo   | Descrição                   |
+| --------------- | ------ | --------------------------- |
+| _id             | String | Identificador da aposta     |
+| usuarioId       | String | Referência ao usuário       |
+| jogoId          | String | Referência ao jogo          |
+| placarCasa      | Number | Palpite para o time da casa |
+| placarVisitante | Number | Palpite para o visitante    |
+| pontuacaoObtida | Number | Pontuação recebida          |
+
+---
+
+## Relacionamento entre Coleções
+
+```text
+USUARIOS
+   │
+   │ 1
+   │
+   └─────────── N
+               │
+            APOSTAS
+               │
+               │ N
+               │
+               └─────────── 1
+                           │
+                         JOGOS
+```
+
+Um usuário pode realizar várias apostas e cada aposta está associada a uma única partida.
